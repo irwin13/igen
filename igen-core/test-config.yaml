@@ -1,0 +1,14 @@
+appName: igen-example
+appVersion: 1.0
+
+dbVendor: postgresql
+dbDriver: pg
+dbUrl: jdbc
+dbUser: pglocal
+dbPass: pglocal
+tableList:
+  - USER
+  - ORG
+
+templateFolder: template
+templateEngine: freemarker
