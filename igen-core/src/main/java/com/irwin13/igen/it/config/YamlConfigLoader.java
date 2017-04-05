@@ -1,4 +1,4 @@
-package com.irwin13.igen.config;
+package com.irwin13.igen.it.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;

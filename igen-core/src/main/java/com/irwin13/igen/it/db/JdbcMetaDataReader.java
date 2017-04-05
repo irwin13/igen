@@ -1,6 +1,6 @@
-package com.irwin13.igen.db;
+package com.irwin13.igen.it.db;
 
-import com.irwin13.igen.vo.ColumnMetaData;
+import com.irwin13.igen.it.vo.ColumnMetaData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,4 +1,4 @@
-package com.irwin13.igen.config;
+package com.irwin13.igen.it.config;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package com.irwin13.igen.db;
+package com.irwin13.igen.it.db;
 
-import com.irwin13.igen.vo.ColumnMetaData;
+import com.irwin13.igen.it.vo.ColumnMetaData;
 
 import java.sql.SQLException;
 import java.util.List;

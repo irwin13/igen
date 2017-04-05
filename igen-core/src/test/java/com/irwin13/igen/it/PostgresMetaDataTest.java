@@ -1,10 +1,12 @@
-package com.irwin13.igen;
+package com.irwin13.igen.it;
 
-import com.irwin13.igen.db.JdbcMetaDataReader;
-import com.irwin13.igen.db.MetaDataReader;
-import com.irwin13.igen.vo.ColumnMetaData;
+import com.irwin13.igen.IntegrationTest;
+import com.irwin13.igen.it.db.JdbcMetaDataReader;
+import com.irwin13.igen.it.db.MetaDataReader;
+import com.irwin13.igen.it.vo.ColumnMetaData;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +16,8 @@ import java.util.List;
 /**
  * Created by irwin on 29/03/17.
  */
-public class PostgreMetaDataTest {
+@Category(IntegrationTest.class)
+public class PostgresMetaDataTest {
 
     private static final String DRIVER = "org.postgresql.Driver";
     private static final String URL = "jdbc:postgresql://localhost:5432/postgres";
