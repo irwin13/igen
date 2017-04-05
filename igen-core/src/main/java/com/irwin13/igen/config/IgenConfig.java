@@ -1,4 +1,4 @@
-package com.irwin13.config;
+package com.irwin13.igen.config;
 
 import java.util.List;
 
@@ -115,4 +115,6 @@ public class IgenConfig {
     public void setTemplateEngine(String templateEngine) {
         this.templateEngine = templateEngine;
     }
+
+
 }

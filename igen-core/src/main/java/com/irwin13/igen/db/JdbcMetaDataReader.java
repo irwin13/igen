@@ -1,6 +1,8 @@
-package com.irwin13.jdbc;
+package com.irwin13.igen.db;
 
-import com.irwin13.dto.ColumnMetaData;
+import com.irwin13.igen.vo.ColumnMetaData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -12,35 +14,36 @@ import java.util.List;
 /**
  * Created by irwin on 29/03/17.
  */
-public class MetaDataUtil {
+public class JdbcMetaDataReader implements MetaDataReader {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(JdbcMetaDataReader.class);
 
     private final Connection connection;
 
-    public MetaDataUtil(Connection connection) {
+    public JdbcMetaDataReader(Connection connection) {
         this.connection = connection;
     }
 
-    private String catalog;
-    private String schemaPattern;
-    private String tablePattern;
-    private String[] types;
+    @Override
+    public List<String> showTables(String schemaPattern, String tablePattern) throws SQLException {
 
-    public List<String> showTables() throws SQLException {
         List<String> tables = new LinkedList<>();
         DatabaseMetaData metaData = connection.getMetaData();
-        ResultSet rs = metaData.getTables(catalog, schemaPattern, tablePattern, types);
+        ResultSet rs = metaData.getTables(null, schemaPattern, tablePattern, null);
         while (rs.next()) {
             String tableName = rs.getString("TABLE_NAME");
             tables.add(tableName);
         }
+        LOGGER.debug("tables = {}", tables);
         return tables;
     }
 
-    public List<ColumnMetaData> columnMetaData(String table) throws SQLException {
+    @Override
+    public List<ColumnMetaData> readColumnMetaData(String schemaPattern, String table) throws SQLException {
         List<ColumnMetaData> list = new LinkedList<>();
 
         DatabaseMetaData metaData = connection.getMetaData();
-        ResultSet resultSet = metaData.getColumns(catalog, schemaPattern, table, null);
+        ResultSet resultSet = metaData.getColumns(null, schemaPattern, table, null);
 
         while (resultSet.next()) {
             ColumnMetaData columnMetaData = new ColumnMetaData();
@@ -62,22 +65,7 @@ public class MetaDataUtil {
             list.add(columnMetaData);
         }
 
+        LOGGER.debug("columnMetaData list = {}", list);
         return list;
-    }
-
-    public void setCatalog(String catalog) {
-        this.catalog = catalog;
-    }
-
-    public void setSchemaPattern(String schemaPattern) {
-        this.schemaPattern = schemaPattern;
-    }
-
-    public void setTablePattern(String tablePattern) {
-        this.tablePattern = tablePattern;
-    }
-
-    public void setTypes(String[] types) {
-        this.types = types;
     }
 }

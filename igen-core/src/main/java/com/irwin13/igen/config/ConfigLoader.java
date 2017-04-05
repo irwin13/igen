@@ -1,4 +1,4 @@
-package com.irwin13.config;
+package com.irwin13.igen.config;
 
 /**
  * Created by irwin on 24/03/17.

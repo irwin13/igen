@@ -1,4 +1,4 @@
-package com.irwin13.config;
+package com.irwin13.igen.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
@@ -25,6 +25,7 @@ public class YamlConfigLoader implements ConfigLoader {
             logger.error(e.getMessage());
             throw new RuntimeException("Error load configuration file : " + configFile);
         }
+        logger.debug("config = {}", config);
         return config;
     }
 }

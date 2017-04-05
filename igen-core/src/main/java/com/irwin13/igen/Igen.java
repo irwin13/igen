@@ -1,4 +1,4 @@
-package com.irwin13;
+package com.irwin13.igen;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

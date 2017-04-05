@@ -1,8 +1,8 @@
-package com.irwin13;
+package com.irwin13.igen;
 
-import com.irwin13.config.ConfigLoader;
-import com.irwin13.config.IgenConfig;
-import com.irwin13.config.YamlConfigLoader;
+import com.irwin13.igen.config.ConfigLoader;
+import com.irwin13.igen.config.IgenConfig;
+import com.irwin13.igen.config.YamlConfigLoader;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -23,7 +23,7 @@ public class ConfigTest {
         Assert.assertEquals("1.0", config.getAppVersion());
         Assert.assertEquals("postgresql", config.getDbVendor());
         Assert.assertEquals("pg", config.getDbDriver());
-        Assert.assertEquals("jdbc", config.getDbUrl());
+        Assert.assertEquals("db", config.getDbUrl());
         Assert.assertEquals("pglocal", config.getDbUser());
         Assert.assertEquals("pglocal", config.getDbPass());
         Assert.assertEquals(2, config.getTableList().size());

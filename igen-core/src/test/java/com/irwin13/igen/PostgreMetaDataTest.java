@@ -1,7 +1,8 @@
-package com.irwin13;
+package com.irwin13.igen;
 
-import com.irwin13.dto.ColumnMetaData;
-import com.irwin13.jdbc.MetaDataUtil;
+import com.irwin13.igen.db.JdbcMetaDataReader;
+import com.irwin13.igen.db.MetaDataReader;
+import com.irwin13.igen.vo.ColumnMetaData;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -27,11 +28,8 @@ public class PostgreMetaDataTest {
         Class.forName(DRIVER);
         Connection connection = DriverManager.getConnection(URL, USER, PASS);
         try {
-            MetaDataUtil metaDataUtil = new MetaDataUtil(connection);
-            metaDataUtil.setSchemaPattern("pglocal");
-            metaDataUtil.setTablePattern("%"); // all tables
-
-            List<String> tables = metaDataUtil.showTables();
+            MetaDataReader jdbcMetaDataReader = new JdbcMetaDataReader(connection);
+            List<String> tables = jdbcMetaDataReader.showTables("pglocal", "%");
             Assert.assertEquals(1, tables.size());
             Assert.assertTrue(tables.containsAll(Arrays.asList(TABLE)));
         } finally {
@@ -44,11 +42,8 @@ public class PostgreMetaDataTest {
         Class.forName(DRIVER);
         Connection connection = DriverManager.getConnection(URL, USER, PASS);
         try {
-            MetaDataUtil metaDataUtil = new MetaDataUtil(connection);
-            metaDataUtil.setSchemaPattern("pglocal");
-
-            List<ColumnMetaData> list = metaDataUtil.columnMetaData(TABLE);
-            System.out.println(list);
+            MetaDataReader jdbcMetaDataReader = new JdbcMetaDataReader(connection);
+            List<ColumnMetaData> list = jdbcMetaDataReader.readColumnMetaData("pglocal", TABLE);
             Assert.assertEquals(5, list.size());
         } finally {
             connection.close();
