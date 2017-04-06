@@ -17,19 +17,29 @@
         <plugins>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.18.1</version>
+                <version>2.19.1</version>
                 <configuration>
+                    <!--
+                    JUnit
                     <excludedGroups>com.irwin13.igen.IntegrationTest</excludedGroups>
+                    -->
+                    <!-- TestNG -->
+                    <excludedGroups>IntegrationTest</excludedGroups>
                 </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.18.1</version>
+                <version>2.19.1</version>
                 <configuration>
                     <includes>
                         <include>**/*.java</include>
                     </includes>
+                    <!--
+                    JUnit
                     <groups>com.irwin13.igen.IntegrationTest</groups>
+                    -->
+                    <!-- TestNG -->
+                    <groups>IntegrationTest</groups>
                 </configuration>
                 <executions>
                     <execution>
@@ -45,10 +55,18 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.9.10</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
             <version>2.3.0</version>
         </dependency>
+
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>

@@ -1,12 +1,10 @@
 package com.irwin13.igen.it;
 
-import com.irwin13.igen.IntegrationTest;
 import com.irwin13.igen.it.db.JdbcMetaDataReader;
 import com.irwin13.igen.it.db.MetaDataReader;
 import com.irwin13.igen.it.vo.ColumnMetaData;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,7 +14,6 @@ import java.util.List;
 /**
  * Created by irwin on 30/03/17.
  */
-@Category(IntegrationTest.class)
 public class MySqlMetaDataTest {
 
     private static final String DRIVER = "com.mysql.jdbc.Driver";
@@ -26,7 +23,7 @@ public class MySqlMetaDataTest {
 
     private static final String TABLE = "pet";
 
-    @Test
+    @Test(groups = "IntegrationTest")
     public void shouldShowTableName() throws Exception {
         Class.forName(DRIVER);
         Connection connection = DriverManager.getConnection(URL, USER, PASS);
@@ -40,7 +37,7 @@ public class MySqlMetaDataTest {
         }
     }
 
-    @Test
+    @Test(groups = "IntegrationTest")
     public void shouldShowColumnMetaData() throws Exception {
         Class.forName(DRIVER);
         Connection connection = DriverManager.getConnection(URL, USER, PASS);

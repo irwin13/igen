@@ -1,22 +1,19 @@
 package com.irwin13.igen.it;
 
-import com.irwin13.igen.IntegrationTest;
 import com.irwin13.igen.it.config.ConfigLoader;
 import com.irwin13.igen.it.config.IgenConfig;
 import com.irwin13.igen.it.config.YamlConfigLoader;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
 /**
  * Created by irwin on 24/03/17.
  */
-@Category(IntegrationTest.class)
 public class ConfigTest {
 
-    @Test
+    @Test(groups = "IntegrationTest")
     public void shouldReadConfigSuccessfully() {
         ConfigLoader configLoader = new YamlConfigLoader();
         IgenConfig config = configLoader.loadConfig("test-config.yaml");
@@ -35,7 +32,7 @@ public class ConfigTest {
         Assert.assertEquals("freemarker", config.getTemplateEngine());
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test(expectedExceptions = RuntimeException.class, groups = "IntegrationTest")
     public void shouldThrowRuntimeException() {
         ConfigLoader configLoader = new YamlConfigLoader();
         IgenConfig config = configLoader.loadConfig("not-exists.yaml");
