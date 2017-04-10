@@ -41,7 +41,6 @@ public class H2MetaDataTest {
 
     @Test
     public void shouldShowTableName() throws Exception {
-        Class.forName(DRIVER);
         Connection connection = DriverManager.getConnection(URL, USER, PASS);
         try {
             MetaDataReader jdbcMetaDataReader = new JdbcMetaDataReader(connection);
@@ -56,7 +55,6 @@ public class H2MetaDataTest {
     // @Test(groups = "IntegrationTest")
     @Test
     public void shouldShowColumnMetaData() throws Exception {
-        Class.forName(DRIVER);
         Connection connection = DriverManager.getConnection(URL, USER, PASS);
         try {
             MetaDataReader jdbcMetaDataReader = new JdbcMetaDataReader(connection);
