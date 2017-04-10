@@ -1,9 +1,8 @@
-package com.irwin13.igen.it;
+package test.it;
 
-import com.irwin13.igen.IntegrationTest;
-import com.irwin13.igen.it.db.JdbcMetaDataReader;
-import com.irwin13.igen.it.db.MetaDataReader;
-import com.irwin13.igen.it.vo.ColumnMetaData;
+import com.irwin13.igen.db.JdbcMetaDataReader;
+import com.irwin13.igen.db.MetaDataReader;
+import com.irwin13.igen.vo.ColumnMetaData;
 import org.h2.tools.Server;
 import org.junit.After;
 import org.junit.Assert;

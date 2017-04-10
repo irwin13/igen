@@ -1,4 +1,4 @@
-package com.irwin13.igen.it.vo;
+package com.irwin13.igen.vo;
 
 /**
  * Created by irwin on 29/03/17.

@@ -1,4 +1,4 @@
-package com.irwin13.igen;
+package test.it;
 
 /**
  * Created by irwin on 05/04/17.

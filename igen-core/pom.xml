@@ -20,7 +20,7 @@
                 <version>2.19.1</version>
                 <configuration>
                     <!-- JUnit -->
-                    <excludedGroups>com.irwin13.igen.IntegrationTest</excludedGroups>
+                    <excludedGroups>test.it.IntegrationTest</excludedGroups>
 
                     <!-- TestNG
                     <excludedGroups>IntegrationTest</excludedGroups>
@@ -35,7 +35,7 @@
                         <include>**/*.java</include>
                     </includes>
                     <!-- JUnit -->
-                    <groups>com.irwin13.igen.IntegrationTest</groups>
+                    <groups>test.it.IntegrationTest</groups>
 
                     <!-- TestNG
                     <groups>IntegrationTest</groups>

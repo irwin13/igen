@@ -1,9 +1,8 @@
-package com.irwin13.igen.it;
+package test.it;
 
-import com.irwin13.igen.IntegrationTest;
-import com.irwin13.igen.it.config.ConfigLoader;
-import com.irwin13.igen.it.config.IgenConfig;
-import com.irwin13.igen.it.config.YamlConfigLoader;
+import com.irwin13.igen.config.ConfigLoader;
+import com.irwin13.igen.config.IgenConfig;
+import com.irwin13.igen.config.YamlConfigLoader;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;

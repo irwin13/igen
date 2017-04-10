@@ -1,6 +1,6 @@
-package com.irwin13.igen.ut;
+package test.ut;
 
-import com.irwin13.igen.it.config.ConfigLoader;
+import com.irwin13.igen.config.ConfigLoader;
 import org.junit.Test;
 
 import static org.mockito.Mockito.*;
