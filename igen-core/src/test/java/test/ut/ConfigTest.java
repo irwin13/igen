@@ -13,8 +13,8 @@ public class ConfigTest {
     @Test
     public void shouldReadConfigSuccessfully() {
         ConfigLoader configLoader = mock(ConfigLoader.class);
-        configLoader.loadConfig("config.yaml");
-        verify(configLoader).loadConfig("config.yaml");
+        configLoader.loadConfig(anyString());
+        verify(configLoader).loadConfig(anyString());
     }
 
     @Test
